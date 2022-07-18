@@ -6,14 +6,19 @@ export class Counter extends React.Component {
         count: this.props.counterInitialValue ?? 0,
     };
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
         setInterval(() => {
+            console.log(this.props.counterIncrement);
             this.setState((state) => ({
                 count: state.count + (this.props.counterIncrement ?? 1),
             }));
         }, this.props.counterInterval ?? 1000);
-    }
+    } 
+    /* 
+    per colpa della strict mode mi esegue componentDidMount 2 volte, c'è scritto che nella production build
+    questo non accade quindi sto ignorando la cosa pero da abbastanza fastidio
+    */
+
 
     render() {
         return <CounterDisplay count={this.state.count} />;

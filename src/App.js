@@ -8,8 +8,12 @@ export class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Welcome name={<strong>Jhon</strong>} age={18} />
-                <Counter counterInitialValue={5} counterIncrement={2} counterInterval={200} />
+                <Welcome name={<strong>Jhon</strong>} age={20} />
+                <Counter
+                    counterInitialValue={6}
+                    counterIncrement={2}
+                    counterInterval={500}
+                />
             </div>
         );
     }
