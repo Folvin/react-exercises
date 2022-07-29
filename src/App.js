@@ -8,6 +8,11 @@ import {Login} from "./Login";
 import {Welcome} from "./Welcome";
 
 export class App extends React.Component {
+    state = {};
+
+    onLogin = (loginState) => {
+        this.setState({loginState: loginState});
+    };
     render() {
         return (
             <div>
@@ -21,7 +26,7 @@ export class App extends React.Component {
                 <ClickCounter />
                 <ClickTracker />
                 <InteractiveWelcome />
-                <Login />
+                <Login onLogin={this.onLogin} />
             </div>
         );
     }

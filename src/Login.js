@@ -1,19 +1,22 @@
-/* Create a Login component containing three inputs: a username input, a password input and a remember checkbox. 
-All three inputs should be controlled components */
-
 import React from "react";
 
 export class Login extends React.Component {
     state = {
         username: undefined,
         password: undefined,
-        remember: undefined,
+        remember: false,
     };
 
     inputHandler = (e) => {
-        const name = e.target.name
-        const type = e.target.type
-        this.setState({[name]: (type === "checkbox") ? e.target.checked : e.target.value})
+        const name = e.target.name;
+        const type = e.target.type;
+        this.setState({
+            [name]: type === "checkbox" ? e.target.checked : e.target.value,
+        });
+    };
+
+    buttonHandler = () => {
+        this.props.onLogin(this.state);
     };
 
     render() {
@@ -37,7 +40,16 @@ export class Login extends React.Component {
                     type="checkbox"
                 />
                 <span>remember me</span>
+                <button
+                    onClick={this.buttonHandler}
+                    disabled={!(this.state.username && this.state.password)}>
+                    login
+                </button>
             </div>
         );
     }
 }
+
+/* Add a "login" button to the Login component. This button should be disabled as long as the username and password 
+inputs are empty. When clicked, the event handler attached to the button should call an onLogin function passed as a 
+prop to the Login component, passing it the state. */
