@@ -2,8 +2,8 @@ import React from "react";
 
 export class Login extends React.Component {
     state = {
-        username: undefined,
-        password: undefined,
+        username: "",
+        password: "",
         remember: false,
     };
 
@@ -19,6 +19,14 @@ export class Login extends React.Component {
         this.props.onLogin(this.state);
     };
 
+    resetField = () => {
+        this.setState({
+            username: "",
+            password: "",
+            remember: false,
+        });
+    };
+
     render() {
         return (
             <div>
@@ -27,17 +35,20 @@ export class Login extends React.Component {
                     name="username"
                     type="text"
                     placeholder="username"
+                    value={this.state.username}
                 />
                 <input
                     onChange={this.inputHandler}
                     name="password"
                     type="password"
                     placeholder="password"
+                    value={this.state.password}
                 />
                 <input
                     onChange={this.inputHandler}
                     name="remember"
                     type="checkbox"
+                    checked={this.state.remember}
                 />
                 <span>remember me</span>
                 <button
@@ -45,11 +56,8 @@ export class Login extends React.Component {
                     disabled={!(this.state.username && this.state.password)}>
                     login
                 </button>
+                <button onClick={this.resetField}>reset</button>
             </div>
         );
     }
 }
-
-/* Add a "login" button to the Login component. This button should be disabled as long as the username and password 
-inputs are empty. When clicked, the event handler attached to the button should call an onLogin function passed as a 
-prop to the Login component, passing it the state. */
