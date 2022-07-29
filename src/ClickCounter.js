@@ -13,7 +13,7 @@ export class ClickCounter extends React.Component {
         return (
             <div>
                 <button onClick={this.incrementCounter}>increment</button>
-                <h2>{this.state.counter}</h2>
+                <h2>{`times clicked: ${this.state.counter}`}</h2>
             </div>
         );
     }
