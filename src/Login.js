@@ -24,7 +24,7 @@ export class Login extends React.Component {
             username: "",
             password: "",
             remember: false,
-        });
+        }, this.buttonHandler); 
     };
 
     render() {
