@@ -10,14 +10,20 @@ export class ClickTracker extends React.Component {
         lastClicked: "click a button!",
     };
     clickedButton = (e) => {
-        this.setState({lastClicked: `last clicked: ${e.target.textContent}`});
+        this.setState({lastClicked: <img src={e.target.src ?? e.target.querySelector("img").src} />});
     };
     render() {
         return (
             <div>
-                <button onClick={this.clickedButton}>button 1</button>
-                <button onClick={this.clickedButton}>button 2</button>
-                <button onClick={this.clickedButton}>button 3</button>
+                <button onClick={this.clickedButton}>
+                    <img src="https://img.icons8.com/color/48/000000/italy.png" />
+                </button>
+                <button onClick={this.clickedButton}>
+                    <img src="https://img.icons8.com/color/48/000000/france.png" />
+                </button>
+                <button onClick={this.clickedButton}>
+                    <img src="https://img.icons8.com/color/48/000000/germany.png" />
+                </button>
                 <h1>{this.state.lastClicked}</h1>
             </div>
         );
