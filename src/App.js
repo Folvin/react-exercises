@@ -1,6 +1,6 @@
 import React from "react";
 import {ClickCounter} from "./ClickCounter";
-import { ClickTracker } from "./ClickTracker";
+import {ClickTracker} from "./ClickTracker";
 import {Counter} from "./Counter";
 import {Hello} from "./Hello";
 import {Welcome} from "./Welcome";
