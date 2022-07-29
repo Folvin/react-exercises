@@ -16,8 +16,9 @@ export class Welcome extends React.Component {
             </div>
         );
     }
-
-    static defaultProps = {
-        name: "Kevin",
-    };
 }
+
+Welcome.defaultProps = {
+    name: "Kevin",
+    age: 20,
+};
