@@ -16,8 +16,11 @@ export class Counter extends React.Component {
     }
 
     componentDidUpdate(prevProps, PrevState) {
-        if (PrevState.count > ((this.props.counterInitialValue ?? +Infinity) * 10)) {
-            this.setState({count: this.props.counterInitialValue})
+        if (
+            PrevState.count >
+            (this.props.counterInitialValue ?? +Infinity) * 10
+        ) {
+            this.setState({count: this.props.counterInitialValue});
         }
     }
 

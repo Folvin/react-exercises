@@ -8,7 +8,7 @@ export class InteractiveWelcome extends React.Component {
 
     handleInput = (e) => {
         this.setState({welcomeName: e.target.value});
-        console.log(e.target)
+        console.log(e.target);
     };
 
     render() {
@@ -20,6 +20,3 @@ export class InteractiveWelcome extends React.Component {
         );
     }
 }
-
-/* Create an InteractiveWelcome component that renders an input tag and the Welcome component. Pass the current 
-content of the input tag to the name prop of the Welcome component. The input tag should be a controlled component. */

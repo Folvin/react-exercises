@@ -1,8 +1,3 @@
-/* Create a ClickTracker component that renders three buttons. Implement a single event handler for all three buttons, 
-and track of which button was pressed last. Show the last button that was pressed in an h1 tag within the ClickTracker 
-component. 
-Tip: you can use the event object to access the target property of the event. */
-
 import React from "react";
 
 export class ClickTracker extends React.Component {
@@ -10,7 +5,11 @@ export class ClickTracker extends React.Component {
         lastClicked: "click a button!",
     };
     clickedButton = (e) => {
-        this.setState({lastClicked: <img src={e.target.src ?? e.target.querySelector("img").src} />});
+        this.setState({
+            lastClicked: (
+                <img src={e.target.src ?? e.target.querySelector("img").src} />
+            ),
+        });
     };
     render() {
         return (
