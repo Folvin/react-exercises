@@ -8,9 +8,10 @@ export class TodoList extends React.Component {
     inputRef = createRef();
 
     itemAdder = (e) => {
-        const inputValue = this.inputRef.current.value
+        let inputValue = this.inputRef.current.value
         const newItemsState = [...this.state.items, inputValue]
         this.setState({items: [...newItemsState]})
+        this.inputRef.current.value = ""
     };
 
     render() {
