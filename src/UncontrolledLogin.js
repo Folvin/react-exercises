@@ -1,6 +1,12 @@
 import React from "react";
 
 export class UncontrolledLogin extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.autoFocus = true
+    }
+
     state = {
         username: "",
         password: "",
@@ -18,7 +24,7 @@ export class UncontrolledLogin extends React.Component {
                     : inputElement.value;
             }
         );
-        
+
         this.setState(
             {
                 username: username,
@@ -34,7 +40,7 @@ export class UncontrolledLogin extends React.Component {
     render() {
         return (
             <form onSubmit={this.formHandler}>
-                <input name="username" type="text" />
+                <input name="username" autoFocus={this.autoFocus} type="text" />
                 <input name="password" type="password" />
                 <input name="remember" type="checkbox" />
                 <button type="submit">login</button>
