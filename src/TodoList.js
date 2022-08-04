@@ -7,11 +7,13 @@ export class TodoList extends React.Component {
 
     inputRef = createRef();
 
-    itemAdder = (e) => {
-        let inputValue = this.inputRef.current.value
-        const newItemsState = [...this.state.items, inputValue]
-        this.setState({items: [...newItemsState]})
-        this.inputRef.current.value = ""
+    itemManager = (e) => {
+        if (e.target.name === "add") {
+            let inputValue = this.inputRef.current.value;
+            const newItemsState = [...this.state.items, inputValue];
+            this.setState({items: [...newItemsState]});
+        } 
+        this.inputRef.current.value = "";
     };
 
     render() {
@@ -23,9 +25,8 @@ export class TodoList extends React.Component {
                     })}
                 </ul>
                 <input ref={this.inputRef} type="text" />
-                <button onClick={this.itemAdder} type="button">
-                    add item
-                </button>
+                <button name="add" onClick={this.itemManager} type="button">add item</button>
+                <button name="reset" onClick={this.itemManager} type="button">reset</button>
             </div>
         );
     }
