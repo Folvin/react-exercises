@@ -1,16 +1,33 @@
 import React from "react";
-import Container from "./Container";
+import {TodoList} from "./TodoList";
 
 export class App extends React.Component {
+    state = {
+        prova: "provaaaa"
+    }
     render() {
         return (
-            <Container title={<h1>titolo</h1>}>
-                <ul>
-                    <li>item 1</li>
-                    <li>item 2</li>
-                    <li>item 3</li>
-                </ul>
-            </Container>
+            <TodoList
+                render={(items, buttonHandler) => {
+                    return (
+                        <ul>
+                            {items.map((item, index) => {
+                                return (
+                                    <li key={index}>
+                                        {item}
+
+                                        <button
+                                            name="remove"
+                                            onClick={buttonHandler}>
+                                            remove
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    );
+                }}
+            />
         );
     }
 }
