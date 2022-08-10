@@ -4,7 +4,7 @@ import {LanguageContext} from "./LanguageContext";
 
 export class App extends React.Component {
     state = {
-        language: undefined,
+        language: "english"
     };
 
     languageChangeHandler = (e) => {
@@ -15,10 +15,10 @@ export class App extends React.Component {
         return (
             <div>
                 <select name="Language" onChange={this.languageChangeHandler}>
-                    <option value="it">italiano</option>
-                    <option value="en">inglese </option>
+                    <option value="english">{this.state.language === "italiano" ? "inglese" : "english"}</option>
+                    <option value="italiano">{this.state.language === "italiano" ? "italiano" : "italian"}</option>
                 </select>
-                <LanguageContext.Provider value={this.state.value}>
+                <LanguageContext.Provider value={this.state.language}>
                     <DisplayLanguage />
                 </LanguageContext.Provider>
             </div>
