@@ -1,9 +1,20 @@
-import { ClickCounter } from "./ClickCounter";
+import {useState} from "react";
+import {Login} from "./Login";
 
-export function App(props) {
+export function App() {
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+        rememeber: false,
+    });
+
+    const onLogin = (data) => {
+        setFormData(data)
+    };
+
     return (
         <div>
-            <ClickCounter />
+            <Login onLogin={onLogin} />
         </div>
     );
 }
