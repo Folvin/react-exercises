@@ -1,9 +1,9 @@
-import {Welcome} from "./Welcome";
+import {Sum} from "./Sum";
 
 export function App(props) {
     return (
         <div>
-            <Welcome name="chiara"/>
+            <Sum number={[7, 4, 5, 2, 8]} />
         </div>
     );
 }
