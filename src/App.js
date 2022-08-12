@@ -1,9 +1,9 @@
-import {Sum} from "./Sum";
+import { ClickCounter } from "./ClickCounter";
 
 export function App(props) {
     return (
         <div>
-            <Sum number={[7, 4, 5, 2, 8]} />
+            <ClickCounter />
         </div>
     );
 }
