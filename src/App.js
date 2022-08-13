@@ -1,20 +1,14 @@
-import {useState} from "react";
-import {Login} from "./Login";
+import {ClickCounter} from "./ClickCounter";
 
 export function App() {
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-        rememeber: false,
-    });
 
-    const onLogin = (data) => {
-        setFormData(data)
-    };
+    function onCounterChange(currentCounter) {
+        console.log(currentCounter)
+    }
 
     return (
         <div>
-            <Login onLogin={onLogin} />
+            <ClickCounter onCounterChange={onCounterChange}/>
         </div>
     );
 }
