@@ -1,14 +1,15 @@
-import {ClickCounter} from "./ClickCounter";
+import {useState} from "react";
+import {Counter} from "./Counter";
 
 export function App() {
-
-    function onCounterChange(currentCounter) {
-        console.log(currentCounter)
+    const [counterToggle, setCounterToggle] = useState(true);
+    function toggleHandler() {
+        setCounterToggle(toggle => !toggle)
     }
-
     return (
         <div>
-            <ClickCounter onCounterChange={onCounterChange}/>
+            <button onClick={toggleHandler}>toggle counter</button>
+            {counterToggle && <Counter />}
         </div>
     );
 }
