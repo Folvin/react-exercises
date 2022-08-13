@@ -1,15 +1,19 @@
-import {useCounter} from "./useCounter";
+import {useUncontrolledForms} from "./useUncontrolledForms";
 
 export function App() {
-    const {counter, incrementCounter, decrementCounter, resetCounter} =
-        useCounter();
+    const {formData, inputHandler} = useUncontrolledForms();
 
     return (
         <div>
-            <h1>counter is: {counter}</h1>
-            <button onClick={incrementCounter}>increment</button>
-            <button onClick={decrementCounter}>decrement</button>
-            <button onClick={resetCounter}>reset</button>
+            {(formData.username || formData.password) !== "" && (
+                <h3>
+                    {formData.username}
+                    {(formData.username && formData.password) !== "" && " | "}
+                    {formData.password}
+                </h3>
+            )}
+            <input onChange={inputHandler} name="username" type="text" />
+            <input onChange={inputHandler} name="password" type="password" />
         </div>
     );
 }
