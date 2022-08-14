@@ -2,16 +2,30 @@ import {useState, useEffect} from "react";
 
 export function useGithubUser(username) {
     const [githubData, setGithubData] = useState();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     async function fetchGithubUser(username) {
-        const response = await fetch(
-            `https://api.github.com/users/${username}`
-        );
-        const json = await response.json();
-        console.log(json);
-        setGithubData(() => {
-            return json;
-        });
+        try {
+            setLoading(true);
+            const response = await fetch(
+                `https://api.github.com/users/${username}`
+            );
+            if (!response.ok) {
+                throw new Error("response is not ok");
+            }
+            const json = await response.json();
+
+            setError(false);
+            setGithubData(() => {
+                return json;
+            });
+        } catch (e) {
+            setError(true);
+            console.log(e.message);
+        } finally {
+            setLoading(false);
+        }
     }
 
     useEffect(() => {
@@ -20,5 +34,7 @@ export function useGithubUser(username) {
 
     return {
         githubData: githubData,
+        loading: loading,
+        error: error,
     };
 }
