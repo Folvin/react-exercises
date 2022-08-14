@@ -1,9 +1,15 @@
-import {GithubUser} from "./GithubUser";
+import {CarDetails} from "./CarDetails";
 
 export function App() {
     return (
         <div>
-            <GithubUser username="folvin" />
+            <CarDetails
+                initialData={{
+                    model: "Audi A1",
+                    year: 2022,
+                    color: "metallic gray",
+                }}
+            />
         </div>
     );
 }
