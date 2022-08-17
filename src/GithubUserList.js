@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import { GithubUser } from "./GithubUser";
 
 export function GithubUserList() {
     const [usernames, setUsernames] = useState([]);
@@ -52,15 +53,11 @@ export function GithubUserList() {
 
     return (
         <div>
-            {!!usernames.length && (
-                <div>
-                    {githubDataList.map((githubData) => {
-                        return <h2 key={githubData.login}>{githubData.id}</h2>;
-                    })}
-                    {loading && <h2>loading...</h2>}
-                    {error && <h2>there was an error, try again</h2>}
-                </div>
-            )}
+            {!!usernames.length &&
+                githubDataList.map((githubData) => (
+                    <GithubUser key={githubData.login} data={githubData} loading={loading} error={error} />
+                ))}
+
             <input type="text" />
             <button disabled={loading} onClick={addingUsername}>
                 fetch user
