@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ClickCounter({ini}) {
+export function ClickCounter() {
     const [counter, setCounter] = useState(0)
 
     function increment() {
